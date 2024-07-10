@@ -13,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+@Preview(backgroundColor = 0xFFFFFF)
 fun Factorial() {
     var expanded by remember { mutableStateOf(false) }
     var text by remember { mutableStateOf(factorialAsString(0)) }
@@ -48,7 +50,7 @@ fun Factorial() {
                     expanded = false
                     text = factorialAsString(n)
                 }) {
-                    Text("${n.toString()}!")
+                    Text("$n!")
                 }
             }
         }
