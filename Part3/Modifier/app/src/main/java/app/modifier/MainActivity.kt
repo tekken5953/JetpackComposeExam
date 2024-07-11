@@ -25,19 +25,19 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // OrderDemo()
-//            TextWithYellowBackground(
-//                text = "Hello Compose",
-//                modifier = Modifier.padding(32.dp)
-//            )
-            Text(
+             OrderDemo()
+            TextWithYellowBackground(
                 text = "Hello Compose",
-                modifier = Modifier
-                    .fillMaxSize()
-                    .drawYellowCross(),
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.h1
+                modifier = Modifier.padding(32.dp)
             )
+//            Text(
+//                text = "Hello Compose",
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .drawYellowCross(),
+//                textAlign = TextAlign.Center,
+//                style = MaterialTheme.typography.h1
+//            )
         }
     }
 }

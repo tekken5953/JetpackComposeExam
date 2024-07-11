@@ -18,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 
@@ -59,16 +58,43 @@ fun ColorPicker(color: MutableState<Color>) {
     val red = color.value.red
     val green = color.value.green
     val blue = color.value.blue
-    Column {
-        Slider(
-            value = red,
-            onValueChange = { color.value = Color(it, green, blue) })
-        Slider(
-            value = green,
-            onValueChange = { color.value = Color(red, it, blue) })
-        Slider(
-            value = blue,
-            onValueChange = { color.value = Color(red, green, it) })
+    Column(modifier = Modifier.width(400.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = "Red",
+                color = Color.Red,
+                modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp)
+            )
+            Slider(
+                value = red,
+                onValueChange = { color.value = Color(it, green, blue) },
+                modifier = Modifier.padding(0.dp, 0.dp, 10.dp, 0.dp)
+            )
+        }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = "Green",
+                color = Color.Green,
+                modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp)
+            )
+            Slider(
+                value = green,
+                onValueChange = { color.value = Color(red, it, blue) },
+                modifier = Modifier.padding(0.dp, 0.dp, 10.dp, 0.dp)
+            )
+        }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = "Blue",
+                color = Color.Blue,
+                modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp)
+            )
+            Slider(
+                value = blue,
+                onValueChange = { color.value = Color(red, green, it) },
+                modifier = Modifier.padding(0.dp, 0.dp, 10.dp, 0.dp)
+            )
+        }
     }
 }
 
